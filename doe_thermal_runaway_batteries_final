@@ -1,0 +1,29 @@
+// Design of Experiments - Thermal Runaway in Batteries
+digraph {
+	subgraph cluster_0 {
+		label="Planning the Experiment" style=dashed
+		T [label="Temperatures
+(Cold, Hot)" shape=box]
+		C [label="Charging Speeds
+(Slow, Medium, Fast)" shape=box]
+		B [label="Battery Sizes
+(Small, Medium, Large)" shape=box]
+	}
+	subgraph cluster_1 {
+		label="Running the Experiment" style=dashed
+		Ex1 [label="Combination 1: 
+Small Battery, Room Temp, Medium Speed" shape=box]
+		Ex2 [label="Combination 2: 
+Large Battery, Hot Temp, Fast Speed" shape=box]
+	}
+	T -> Ex1
+	C -> Ex1
+	B -> Ex1
+	T -> Ex2
+	C -> Ex2
+	B -> Ex2
+	A [label="Analyzing Results:
+High Temp + Fast Charging = More Risk of thermal runaway" shape=box]
+	Ex1 -> A
+	Ex2 -> A
+}
